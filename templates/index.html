@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Doctors</title>
+</head>
+<body>
+    <h1>Get Doctors</h1>
+    <form id="doctorForm">
+        <label for="specialty">Specialty:</label>
+        <input type="text" id="specialty" name="specialty"><br><br>
+        
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location"><br><br>
+        
+        <label for="insurance_carrier">Insurance Carrier:</label>
+        <input type="text" id="insurance_carrier" name="insurance_carrier"><br><br>
+        
+        <button type="submit">Get Doctors</button>
+    </form>
+
+    <div id="doctorsContainer"></div>
+
+    <script>
+        const form = document.getElementById('doctorForm');
+        const doctorsContainer = document.getElementById('doctorsContainer');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const specialty = form.specialty.value;
+            const location = form.location.value;
+            const insuranceCarrier = form.insurance_carrier.value;
+
+            const response = await fetch(`/get-doctors?specialty=${specialty}&location=${location}&insurance_carrier=${insuranceCarrier}`);
+            const data = await response.json();
+
+            if (data.error) {
+                doctorsContainer.innerHTML = `<p>${data.error}</p>`;
+            } else {
+                doctorsContainer.innerHTML = '';
+                data.forEach(doctor => {
+                    const doctorDiv = document.createElement('div');
+                    doctorDiv.innerHTML = `
+                        <h2>${doctor.name}</h2>
+                        <p>Specialty: ${doctor.specialty}</p>
+                        <p>Address: ${doctor.address}</p>
+                        <img src="${doctor.image_url}" alt="${doctor.name}">
+                    `;
+                    doctorsContainer.appendChild(doctorDiv);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

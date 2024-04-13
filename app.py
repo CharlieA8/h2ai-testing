@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, request, render_template
+from flask_sqlalchemy import SQLAlchemy
 from scraper import scrape_doctors
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+db = SQLAlchemy(app)
 
 @app.route('/get-doctors', methods=['GET'])
 def get_doctors():

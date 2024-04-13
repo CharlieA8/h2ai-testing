@@ -48,7 +48,8 @@ def scrape_doctors(specialty, location, insurance_carrier):
         for item in doctor_items[:3]:
             name = item.find("h2", class_="Heading-sc-1w5xk2o-0").text.strip()
             specialty = item.find("p", class_="Hide-kg09cx-0").text.strip()
-            address = item.find("div", class_="DetailCardDoctor__DataPoint-dno04z-8").text.strip()
+            address_div = item.find("div", class_="DetailCardDoctor__DataPoint-dno04z-8")
+            address = address_div.find("p", class_="Paragraph-sc-1iyax29-0").text.strip()
             image_url = item.find("img", class_="Image__PictureImage-sc-412cjc-1").get("src")
 
             # Create a dictionary for the doctor and append it to the list

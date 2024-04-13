@@ -3,52 +3,49 @@ import { Github, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { on } from "events";
 
 const health = [
 	{
 		icon: <Twitter size={20} />,
-		href: "https://twitter.com/chronark_",
 		handle: "Cardiovascular",
 	},
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:dev@chronark.com",
 		handle: "Reprooductive Health",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
 		handle: "Gastrointestinal Health",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
 		handle: "Gastrointestinal Health",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
 		handle: "Chronic Conditions",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
 		handle: "Dental Heath",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
 		handle: "Eye Health",
 	},
 		{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
 		handle: "Eye Health",
 	},
 	
 ];
 
 export default function Example() {
+	const handleCardClick = (topic) => {
+		localStorage.setItem("currentTopic", topic); // Set the current topic in local storage
+	};
+
 	return (
 		<div className=" bg-pink-300">
 			<div className="pb-20">
@@ -60,9 +57,10 @@ export default function Example() {
 					{health.map((s) => (
 						<Card>
 							<Link
-								href={s.href}
+								href={"llm"}
 								target="_blank"
 								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
+								onClick={() => handleCardClick(s.handle)}
 							>
 								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
 									{s.icon}

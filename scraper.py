@@ -1,11 +1,9 @@
-from flask import Flask, jsonify, request, render_template
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
-app = Flask(__name__)
 
 def scrape_doctors(specialty, location, insurance_carrier):
     # URL of the website
@@ -70,22 +68,3 @@ def scrape_doctors(specialty, location, insurance_carrier):
     finally:
         # Close the Selenium webdriver
         driver.quit()
-    
-@app.route('/get-doctors', methods=['GET'])
-def get_doctors():
-    specialty = request.args.get('specialty')
-    location = request.args.get('location')
-    insurance_carrier = request.args.get('insurance_carrier')
-    
-    doctors_info = scrape_doctors(specialty, location, insurance_carrier)
-    if doctors_info:
-        return jsonify(doctors_info)
-    else:
-        return jsonify({"error": "No results"})
-    
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)

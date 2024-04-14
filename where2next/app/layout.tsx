@@ -7,18 +7,18 @@ import { Analytics } from "./components/analytics";
 export const metadata: Metadata = {
   title: {
     default: "where2next",
-    template: "%s | chronark.com",
+    template: "%s | where2next.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "h2ai",
   openGraph: {
-    title: "chronark.com",
+    title: "where2next.com",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "h2ai",
+    url: "https://where2next.com",
+    siteName: "where2next.com",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://cdn-icons-png.freepik.com/512/6333/6333192.png",
         width: 1920,
         height: 1080,
       },
@@ -37,12 +37,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    title: "Chronark",
-    card: "summary_large_image",
-  },
   icons: {
-    shortcut: "/favicon.png",
+    shortcut: "/healthcare.png",
   },
 };
 const inter = Inter({

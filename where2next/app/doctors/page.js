@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import DoctorCards from './doctorCards';
+import DoctorCards from './DoctorCards';
 import "./page.css";
 import Link from "next/link";
 

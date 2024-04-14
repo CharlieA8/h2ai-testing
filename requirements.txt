@@ -31,6 +31,7 @@ fsspec==2024.3.1
 google-auth==2.29.0
 googleapis-common-protos==1.63.0
 grpcio==1.62.1
+gunicorn==21.2.0
 h11==0.14.0
 httpcore==1.0.5
 httptools==0.6.1

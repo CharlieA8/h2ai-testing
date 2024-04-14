@@ -62,6 +62,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-pink-300">
+        <div className="absolute top-0 left-0 pt-5 pl-5">
+        </div>
       {messages.length !== 0 ? (
         <div className="pb-32 pt-5 space-y-5 w-[75%] mx-auto relative">
             {messages.map((message) => (

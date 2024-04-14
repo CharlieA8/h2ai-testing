@@ -1,5 +1,5 @@
 "use client";
-import { Github, Mail, Twitter } from "lucide-react";
+import { HeartPulse, Baby, Drumstick, Speech, Dna, CandyOff, Eye, PersonStanding } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -7,36 +7,36 @@ import { on } from "events";
 
 const health = [
 	{
-		icon: <Twitter size={20} />,
+		icon: <HeartPulse size={20} />,
 		handle: "Cardiovascular",
 	},
 	{
-		icon: <Mail size={20} />,
+		icon: <Baby size={20} />,
 		handle: "Reprooductive Health",
 	},
 	{
-		icon: <Github size={20} />,
+		icon: <Drumstick size={20} />,
 		handle: "Gastrointestinal Health",
 	},
 	{
-		icon: <Github size={20} />,
-		handle: "Gastrointestinal Health",
+		icon: <Speech size={20} />,
+		handle: "Respiratory Health",
 	},
 	{
-		icon: <Github size={20} />,
+		icon: <Dna size={20} />,
 		handle: "Chronic Conditions",
 	},
 	{
-		icon: <Github size={20} />,
+		icon: <CandyOff size={20} />,
 		handle: "Dental Heath",
 	},
 	{
-		icon: <Github size={20} />,
+		icon: <Eye size={20} />,
 		handle: "Eye Health",
 	},
 		{
-		icon: <Github size={20} />,
-		handle: "Eye Health",
+		icon: <PersonStanding size={20} />,
+		handle: "Dermatology",
 	},
 	
 ];
@@ -47,7 +47,7 @@ export default function Example() {
 	};
 
 	return (
-		<div className=" bg-pink-300">
+		<div className="bg-pink-300 pb-10">
 			<div className="pb-20">
 				<Navigation />
 			</div>
@@ -59,14 +59,14 @@ export default function Example() {
 							<Link
 								href={"llm"}
 								target="_blank"
-								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
+								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24 lg:pb-48  md:p-16 "
 								onClick={() => handleCardClick(s.handle)}
 							>
-								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
+								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange ">
 									{s.icon}
 								</span>{" "}
 								<div className="z-10 flex flex-col items-center">
-									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display">
+									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-100 group-hover:text-white font-display drop-shadow-lg">
 										{s.handle}
 									</span>
 								</div>

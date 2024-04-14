@@ -47,6 +47,8 @@
                         <p>Specialty: ${doctor.specialty}</p>
                         <p>Address: ${doctor.address}</p>
                         <img src="${doctor.image_url}" alt="${doctor.name}">
+                        <p><a href="https://health.usnews.com${doctor.doctor_url}" target="_blank">More Information</a></p>
+
                     `;
                     doctorsContainer.appendChild(doctorDiv);
                 });

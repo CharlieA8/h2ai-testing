@@ -11,9 +11,31 @@ const DoctorCards = () => {
     console.log('Component mounted, fetching data...');
 
       try {
-            const specialty = "Gas";
-            const location = 20057;
-            const insuranceCarrier = "Aetna";
+
+        const [location, setLocation] = useState("20057");
+        const [insuranceCarrier, setHealth] = useState("Aetna"); 
+        const [specialty, setSpeciality] = useState("Gas")
+      
+        useEffect(() => {
+          const storedZip = localStorage.getItem("userZipCode");
+          if (storedZip) {
+            setLocation(storedZip);
+          }
+        }, []);
+      
+        useEffect(() => {
+          const storedInsuranceCarrier = localStorage.getItem("insuranceCarrier");
+          if (storedInsuranceCarrier) {
+            setHealth(storedInsuranceCarrier);
+          }
+        }, []);
+      
+        useEffect(() => {
+          const storedSpeciality = localStorage.getItem("speciality");
+          if (storedSpeciality) {
+            setSpeciality(storedSpeciality);
+          }
+        }, []);
 
             // log that we are fetching data
             console.log('Fetching data...');

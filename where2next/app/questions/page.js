@@ -91,7 +91,7 @@ export default function ZipCodeForm() {
           >
             <option value="">Select Insurance</option>
             <option value="Kaiser">Kaiser</option>
-            <option value="BCBS">BCBS</option>
+            <option value="BCBS">Blue Cross Blue Shield</option>
             <option value="Cigna">Cigna</option>
             <option value="Elevance">Elevance</option>
             <option value="Other">Other</option>

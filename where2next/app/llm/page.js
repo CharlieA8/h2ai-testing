@@ -6,6 +6,7 @@ import React from "react";
 import local from "@next/font/local";
 import Link from "next/link";
 import { color } from "framer-motion";
+import {Spinner} from "@nextui-org/react";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
   const storedContext = localStorage.getItem("currentTopic");
 
   const [currentTopic, setCurrentTopic] = useState(storedContext || "General Medical");
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
 
   useEffect(() => {
     localStorage.setItem("currentTopic", currentTopic);
@@ -46,6 +48,8 @@ export default function Home() {
     const search_term = "Cardiovascular"
     const question = input
 
+    setIsLoading(true); // Set loading to true before making the API call
+
     console.log(search_term)
     console.log(question)
     
@@ -68,6 +72,8 @@ export default function Home() {
         .catch(error => {
           console.error('There was a problem with the fetch operation:', error);
         });
+
+      setIsLoading(false);
       // Add API response to messages
       setMessages([
         ...messages,
@@ -147,6 +153,8 @@ export default function Home() {
           </h1>
         </div>
       )}
+
+      <Spinner />
 
       <form
         onSubmit={handleSubmit}

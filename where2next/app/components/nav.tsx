@@ -44,12 +44,13 @@ export const Navigation: React.FC = () => {
 
 					<Link
 						href="/"
-						className="duration-200 text-zinc-300 hover:text-zinc-100"
+						className="duration-200 text-zinc-500 hover:text-white"
 					>
-						<ArrowLeft className="w-6 h-6 " />
+						<ArrowLeft className="w-6 h-6 drop-shadow-lg" />
 					</Link>
 				</div>
 			</div>
 		</header>
 	);
 };
+

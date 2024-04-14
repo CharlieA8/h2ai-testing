@@ -1,0 +1,32 @@
+/* styles.css */
+
+.doctor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .doctor-card {
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .doctor-card h2 {
+    margin-top: 0;
+  }
+  
+  .doctor-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .doctor-card p {
+    margin: 0;
+  }
+  

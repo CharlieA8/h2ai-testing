@@ -182,18 +182,12 @@ export default function Home() {
 
       <div className="absolute bottom-8 left-0 right-0 flex justify-center rounded-md">
             <Link
-              key={"doctors"}
-              href={"/doctors"}
+              key={"questions"}
+              href={"/questions"}
               className="text-md duration-500 black hover:text-zinc-300 text-white drop-shadow-lg"
             >
               click me to see relevant doctors in my area
             </Link>
-            {/* <button 
-              type="submit"
-              className="bg-pink-600 w-20 text-white rounded px-4 py-4 mt-2 hover:bg-pink-700"
-            >
-              click here to see relevant local doctors
-            </button> */}
       </div>
     </div>
   );

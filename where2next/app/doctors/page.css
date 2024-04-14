@@ -18,11 +18,12 @@
 }
 
 button {
-    background-color: white;
+    background-color: #da2777;
+    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 4px;
 }

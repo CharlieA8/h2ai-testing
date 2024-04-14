@@ -39,7 +39,11 @@ function Page() {
   return (
     <div className='get-doctors-container'>
         <h1>Care near you!</h1>
-        <DoctorCards />
+        <DoctorCards
+          specialty={specialty}
+          location={location}
+          insuranceCarrier={insuranceCarrier}
+         />
         <Link href="/"><button className='return-button'>Return Home</button></Link>
     </div>
   );

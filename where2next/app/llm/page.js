@@ -4,6 +4,7 @@ import Textarea from "react-textarea-autosize";
 import { v4 as uuidv4 } from "uuid";
 import React from "react";
 import local from "@next/font/local";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -82,10 +83,18 @@ export default function Home() {
     }
   };
   
-  
-
   return (
     <div className="min-h-screen bg-pink-300">
+      {/* create a button that is fixed top and right*/}
+      <div className="absolute top-0 right-0 rounded-md">
+            <Link
+              key={"doctors"}
+              href={"/doctors"}
+              className="text-sm duration-500 black hover:text-zinc-300"
+            >
+              click me to see relevant doctors in my area
+            </Link>
+      </div>
         <div className="absolute top-0 left-0 pt-5 pl-5">
         </div>
       {messages.length !== 0 ? (

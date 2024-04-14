@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import React from "react";
 import local from "@next/font/local";
 import Link from "next/link";
+import { color } from "framer-motion";
 
 
 export default function Home() {
@@ -86,15 +87,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-pink-300">
       {/* create a button that is fixed top and right*/}
-      <div className="absolute top-0 right-0 rounded-md">
-            <Link
-              key={"doctors"}
-              href={"/doctors"}
-              className="text-sm duration-500 black hover:text-zinc-300"
-            >
-              click me to see relevant doctors in my area
-            </Link>
-      </div>
         <div className="absolute top-0 left-0 pt-5 pl-5">
         </div>
       {messages.length !== 0 ? (
@@ -150,7 +142,7 @@ export default function Home() {
         </div>
       ) : (
         <div className="w-full flex justify-center pt-32">
-          <h1 className="font-bold font-mono text-3xl">
+          <h1 className="font-bold font-mono text-3xl wrap pl-4 pr-4 text-white drop-shadow-lg">
             Hi I am your AI Doctor! How can I help you today?
           </h1>
         </div>
@@ -158,7 +150,7 @@ export default function Home() {
 
       <form
         onSubmit={handleSubmit}
-        className="p-5 fixed bottom-0 left-0 w-[75%] mx-auto right-0 bg-pink-300"
+        className="p-20 fixed bottom-0 left-0 w-[75%] mx-auto right-0 bg-pink-300"
       >
         <div className="relative flex items-center">
           <Textarea
@@ -170,7 +162,7 @@ export default function Home() {
             autoFocus
             placeholder="Send message..."
             spellCheck={false}
-            className="w-full focus:outline-none shadow-grey shadow-xl placeholder:text-gray-200 text-sm text-black p-5 pr-16 rounded-xl bg-white"
+            className="w-full focus:outline-none shadow-grey shadow-xl placeholder:text-gray-400 text-sm text-zinc-700 p-5 pr-16 rounded-xl bg-white"
           />
           <button
             type="submit"
@@ -187,6 +179,22 @@ export default function Home() {
           </button>
         </div>
       </form>
+
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center rounded-md">
+            <Link
+              key={"doctors"}
+              href={"/doctors"}
+              className="text-md duration-500 black hover:text-zinc-300 text-white drop-shadow-lg"
+            >
+              click me to see relevant doctors in my area
+            </Link>
+            {/* <button 
+              type="submit"
+              className="bg-pink-600 w-20 text-white rounded px-4 py-4 mt-2 hover:bg-pink-700"
+            >
+              click here to see relevant local doctors
+            </button> */}
+      </div>
     </div>
   );
 }

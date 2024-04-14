@@ -9,7 +9,7 @@ const DoctorCards = (specialty, location, insuranceCarrier ) => {
     console.log(specialty, location, insuranceCarrier, "specialty, location, insuranceCarrier");
 
       try {
-        const response = await fetch(`http://localhost:5000/get-doctors?specialty=${specialty}&location=${location}&insurance_carrier=${insuranceCarrier}`);
+        const response = await fetch(`https://where2next-4fb781c3d1e4.herokuapp.com/get-doctors?specialty=${specialty}&location=${location}&insurance_carrier=${insuranceCarrier}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }

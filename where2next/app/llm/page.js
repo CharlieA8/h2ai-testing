@@ -56,7 +56,7 @@ export default function Home() {
     try {
       // Fetch response from API
       let answer; // Declare the 'answer' variable outside of the .then() block
-      const response = await fetch(`http://localhost:5000/getAnswers?search=${search_term}&question=${question}`)
+      const response = await fetch(`https://where2next-4fb781c3d1e4.herokuapp.com/getAnswers?search=${search_term}&question=${question}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');

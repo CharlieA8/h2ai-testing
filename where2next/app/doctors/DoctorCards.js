@@ -35,12 +35,12 @@ const DoctorCards = () => {
   return (
     <div className="doctor-cards">
       {doctors.map((doctor, index) => (
-        <div key={index} className="doctor-card">
+        <a key={index} href={`https://health.usnews.com${doctor.doctor_url}`} target="_blank" className="doctor-card">
           <h2>{doctor.name}</h2>
           <img src={doctor.image_url} alt={doctor.name} />
           <p>Location: {doctor.address}</p>
           <p>Specialty: {doctor.specialty}</p>
-        </div>
+        </a>
       ))}
     </div>
   );

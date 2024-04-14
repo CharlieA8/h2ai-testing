@@ -16,11 +16,11 @@ const health = [
 	},
 	{
 		icon: <Drumstick size={20} />,
-		handle: "Gastrointestinal Health",
+		handle: "Gastroenterology",
 	},
 	{
 		icon: <Speech size={20} />,
-		handle: "Respiratory Health",
+		handle: "Lung",
 	},
 	{
 		icon: <Dna size={20} />,

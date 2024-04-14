@@ -10,17 +10,7 @@ import {Spinner} from "@nextui-org/react";
 
 
 export default function Home() {
-
-  const storedContext = localStorage.getItem("currentTopic");
-
-  const [currentTopic, setCurrentTopic] = useState(storedContext || "General Medical");
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
-
-  useEffect(() => {
-    localStorage.setItem("currentTopic", currentTopic);
-  }, [currentTopic]);
-
-
+  const context = localStorage.getItem("currentTopic");
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
@@ -45,10 +35,9 @@ export default function Home() {
   
     setInput("");
     
-    const search_term = "Cardiovascular"
+    const search_term = context
+    console.log(search_term)
     const question = input
-
-    setIsLoading(true); // Set loading to true before making the API call
 
     console.log(search_term)
     console.log(question)
@@ -73,7 +62,6 @@ export default function Home() {
           console.error('There was a problem with the fetch operation:', error);
         });
 
-      setIsLoading(false);
       // Add API response to messages
       setMessages([
         ...messages,
@@ -154,7 +142,6 @@ export default function Home() {
         </div>
       )}
 
-      <Spinner />
 
       <form
         onSubmit={handleSubmit}

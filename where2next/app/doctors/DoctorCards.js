@@ -2,11 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import './DoctorCards.css';
 
-const DoctorCards = (specialty, location, insuranceCarrier ) => {
+const DoctorCards = () => {
   useEffect(() => {
     const fetchData = async () => {
     console.log('Component mounted, fetching data...');
     console.log(specialty, location, insuranceCarrier, "specialty, location, insuranceCarrier");
+    const specialty = "gas";
+    const location = "20057"; 
+    const insuranceCarrier = "Aetna";
 
       try {
         const response = await fetch(`https://where2next-4fb781c3d1e4.herokuapp.com/get-doctors?specialty=${specialty}&location=${location}&insurance_carrier=${insuranceCarrier}`);

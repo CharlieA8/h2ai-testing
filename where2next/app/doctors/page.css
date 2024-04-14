@@ -1,0 +1,11 @@
+.get-doctors-container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: pink;
+}
+
+.get-doctors-container h1 {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 2rem;
+}

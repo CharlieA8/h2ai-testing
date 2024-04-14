@@ -29,9 +29,9 @@ export default function ZipCodeForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem("userZipCode", zipCode);
-    localStorage.setItem("userName", name);
-    localStorage.setItem("healthInsurance:", healthInsurance); 
+    //localStorage.setItem("userZipCode", zipCode);
+    //localStorage.setItem("userName", name);
+    //localStorage.setItem("healthInsurance:", healthInsurance); 
     router.push("/doctors");
     // You can add more logic here, like submitting the form data to a server
   };

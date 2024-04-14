@@ -148,7 +148,7 @@ export default function Home() {
         </div>
       ) : (
         <div className="w-full flex justify-center pt-32">
-          <h1 className="font-bold font-mono text-3xl wrap pl-4 pr-4 text-white drop-shadow-lg">
+          <h1 className="font-bold font-mono text-3xl wrap pl-6 pr-4 text-white drop-shadow-lg">
             Hi I am your AI Doctor! How can I help you today?
           </h1>
         </div>
@@ -192,7 +192,7 @@ export default function Home() {
             <Link
               key={"questions"}
               href={"/questions"}
-              className="text-md duration-500 black hover:text-zinc-300 text-white drop-shadow-lg"
+              className="text-md duration-500 black hover:text-lg text-white drop-shadow-lg"
             >
               click me to see relevant doctors in my area
             </Link>

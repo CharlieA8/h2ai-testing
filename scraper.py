@@ -17,12 +17,8 @@ def scrape_doctors(specialty, location, insurance_carrier):
         "insurance_carrier": insurance_carrier,
     }
 
-    # Configure Chrome options for headless mode
-    options = Options()
-    options.headless = True
-
-    # Configure Selenium webdriver
-    driver = webdriver.Chrome(options=options)
+    # Create a WebDriver instance
+    driver = webdriver.Chrome()
 
     # Construct the URL with parameters
     url_with_params = (
@@ -63,7 +59,6 @@ def scrape_doctors(specialty, location, insurance_carrier):
             address = address_div.find("p", class_="Paragraph-sc-1iyax29-0").text.strip()
             image_url = item.find("img", class_="Image__PictureImage-sc-412cjc-1").get("src")
             doctor_url = item.find("a", class_="Anchor-byh49a-0").get("href")
-            print(doctor_url)
 
             # Create a dictionary for the doctor and append it to the list
             doctor = {

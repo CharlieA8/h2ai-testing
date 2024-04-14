@@ -35,7 +35,7 @@ export default function Home() {
   
     setInput("");
     
-    const search_term = "Cardiovascular"
+    const search_term = context
     console.log(search_term)
     const question = input
 

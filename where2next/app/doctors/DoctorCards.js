@@ -9,7 +9,7 @@ const DoctorCards = () => {
     const fetchData = async () => {
     const specialty = "gas";
     const location = 20057; 
-    const insuranceCarrier = "Aetna";
+    const insuranceCarrier = "";
 
     console.log("Fetching data..."); 
 

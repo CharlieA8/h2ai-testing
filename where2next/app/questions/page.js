@@ -1,10 +1,12 @@
 "use client"
 import React, { useState } from "react";
 import { TypeAnimation } from 'react-type-animation';
+import { useRouter } from "next/navigation";
 
 export default function ZipCodeForm() {
   const [name, setName] = useState("");
   const [zipCode, setZipCode] = useState("");
+  const router = useRouter();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -18,6 +20,7 @@ export default function ZipCodeForm() {
     event.preventDefault();
     localStorage.setItem("userZipCode", zipCode);
     localStorage.setItem("userName", name);
+    router.push("/doctors");
     // You can add more logic here, like submitting the form data to a server
   };
 

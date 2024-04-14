@@ -23,22 +23,21 @@ def get_doctors():
         return jsonify(doctors_info)
     else:
         return jsonify({"error": "No results"})
-    
-@app.route('/getAnswers', methods=['GET'])
+
+
+@app.route("/getAnswers", methods=["GET"])
 def get_rag_answers():
-    search_term = request.args.get('search')
-    question = request.args.get('question')
-    
+    search_term = request.args.get("search")
+    question = request.args.get("question")
+
     if not search_term or not question:
         return jsonify({"error": "Search term and question are required."}), 400
-    
+
     answers = RagAnswers(search_term, question)
-    
     return jsonify(answers)
-    
-@app.route('/')
 
 
+@app.route("/")
 @app.route("/")
 def index():
     return render_template("index.html")

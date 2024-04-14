@@ -3,9 +3,20 @@ import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import Textarea from "react-textarea-autosize";
 import { v4 as uuidv4 } from "uuid";
 import React from "react";
+import local from "@next/font/local";
+import Link from "next/link";
 
 
 export default function Home() {
+
+  const storedContext = localStorage.getItem("currentTopic");
+
+  const [currentTopic, setCurrentTopic] = useState(storedContext || "General Medical");
+
+  useEffect(() => {
+    localStorage.setItem("currentTopic", currentTopic);
+  }, [currentTopic]);
+
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -32,22 +43,36 @@ export default function Home() {
     setInput("");
     
     const search_term = "Cardiovascular"
-    const question = "my heart hurts, what should I do?"
+    const question = input
+
+    console.log(search_term)
+    console.log(question)
     
     try {
       // Fetch response from API
-      const response = await fetch(`http://localhost:5000/getAnswers?search=${search_term}&question=${question}`, {
-        mode: 'no-cors'
-      });
-      console.log(response); 
-      const responseData = await response.json();
-  
+      let answer; // Declare the 'answer' variable outside of the .then() block
+      const response = await fetch(`http://localhost:5000/getAnswers?search=${search_term}&question=${question}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text(); // Convert the response body to text
+        })
+        .then(data => {
+          console.log(data); // This will log the response body as a string
+          // Now you can store the 'data' variable as needed
+          // For example:
+          answer = data; // Assign the value to the 'answer' variable
+        })
+        .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
       // Add API response to messages
       setMessages([
         ...messages,
         {
           id: uuidv4(),
-          content: responseData, // Assuming the API response is a string or object
+          content: answer, // Use the 'answer' variable here
           role: "bot",
         },
       ]);
@@ -58,10 +83,18 @@ export default function Home() {
     }
   };
   
-  
-
   return (
     <div className="min-h-screen bg-pink-300">
+      {/* create a button that is fixed top and right*/}
+      <div className="absolute top-0 right-0 rounded-md">
+            <Link
+              key={"doctors"}
+              href={"/doctors"}
+              className="text-sm duration-500 black hover:text-zinc-300"
+            >
+              click me to see relevant doctors in my area
+            </Link>
+      </div>
         <div className="absolute top-0 left-0 pt-5 pl-5">
         </div>
       {messages.length !== 0 ? (

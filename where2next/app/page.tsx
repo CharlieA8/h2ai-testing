@@ -3,7 +3,6 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
-  { name: "idk whats wrong", href: "/form" },
   { name: "i need help", href: "/info" },
 ];
 

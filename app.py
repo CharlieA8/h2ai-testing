@@ -24,9 +24,9 @@ def get_doctors():
     else:
         return jsonify({"error": "No results"})
     
-@app.route('/get-answers', methods=['GET'])
+@app.route('/getAnswers', methods=['GET'])
 def get_rag_answers():
-    search_term = request.args.get('search_term')
+    search_term = request.args.get('search')
     question = request.args.get('question')
     
     if not search_term or not question:

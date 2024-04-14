@@ -7,15 +7,34 @@ import Link from "next/link";
 
 function Page() {
 
-  const storedZipCode = localStorage.getItem("userZipCode");
 
-  const [userZipCode, setUserZipCode] = useState(storedZipCode || 20057);
-  
-  console.log(userZipCode);
+  const [location, setLocation] = useState("20057");
+  const [insuranceCarrier, setHealth] = useState("Aetna"); 
+  const [specialty, setSpeciality] = useState("Gas")
 
   useEffect(() => {
-    localStorage.setItem("userZipCode", userZipCode);
-  }, [userZipCode]);
+    const storedZip = localStorage.getItem("userZipCode");
+    if (storedZip) {
+      setLocation(storedZip);
+    }
+  }, []);
+
+  useEffect(() => {
+    const storedInsuranceCarrier = localStorage.getItem("insuranceCarrier");
+    if (storedInsuranceCarrier) {
+      setHealth(storedInsuranceCarrier);
+    }
+  }, []);
+
+  useEffect(() => {
+    const storedSpeciality = localStorage.getItem("speciality");
+    if (storedSpeciality) {
+      setSpeciality(storedSpeciality);
+    }
+  }, []);
+
+  console.log(location, insuranceCarrier, specialty);
+
 
   return (
     <div className='get-doctors-container'>

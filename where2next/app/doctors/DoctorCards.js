@@ -2,45 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import './DoctorCards.css';
 
-const DoctorCards = () => {
-  const [doctors, setDoctors] = useState([]);
-
-
+const DoctorCards = (specialty, location, insuranceCarrier ) => {
   useEffect(() => {
     const fetchData = async () => {
     console.log('Component mounted, fetching data...');
+    console.log(specialty, location, insuranceCarrier, "specialty, location, insuranceCarrier");
 
       try {
-
-        const [location, setLocation] = useState("20057");
-        const [insuranceCarrier, setHealth] = useState("Aetna"); 
-        const [specialty, setSpeciality] = useState("Gas")
-      
-        useEffect(() => {
-          const storedZip = localStorage.getItem("userZipCode");
-          if (storedZip) {
-            setLocation(storedZip);
-          }
-        }, []);
-      
-        useEffect(() => {
-          const storedInsuranceCarrier = localStorage.getItem("insuranceCarrier");
-          if (storedInsuranceCarrier) {
-            setHealth(storedInsuranceCarrier);
-          }
-        }, []);
-      
-        useEffect(() => {
-          const storedSpeciality = localStorage.getItem("speciality");
-          if (storedSpeciality) {
-            setSpeciality(storedSpeciality);
-          }
-        }, []);
-
-            // log that we are fetching data
-            console.log('Fetching data...');
-
-            const response = await fetch(`http://localhost:5000/get-doctors?specialty=${specialty}&location=${location}&insurance_carrier=${insuranceCarrier}`);
+        const response = await fetch(`http://localhost:5000/get-doctors?specialty=${specialty}&location=${location}&insurance_carrier=${insuranceCarrier}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }

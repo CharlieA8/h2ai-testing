@@ -1,4 +1,6 @@
+"use client"
 import React, { useState, useEffect } from 'react';
+import './DoctorCards.css';
 
 const DoctorCards = () => {
   const [doctors, setDoctors] = useState([]);
@@ -6,6 +8,8 @@ const DoctorCards = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+    console.log('Component mounted, fetching data...');
+
       try {
             const specialty = "Gas";
             const location = 20057;
@@ -33,7 +37,8 @@ const DoctorCards = () => {
       {doctors.map((doctor, index) => (
         <div key={index} className="doctor-card">
           <h2>{doctor.name}</h2>
-          <img src={doctor.imgSrc} alt={doctor.name} />
+          <img src={doctor.image_url} alt={doctor.name} />
+          <p>Location: {doctor.address}</p>
           <p>Specialty: {doctor.specialty}</p>
         </div>
       ))}

@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from scraper import scrape_doctors
+from WrappedRAG import RagAnswers
 
 from flask_cors import CORS
 
@@ -22,6 +23,20 @@ def get_doctors():
         return jsonify(doctors_info)
     else:
         return jsonify({"error": "No results"})
+    
+@app.route('/get-answers', methods=['GET'])
+def get_rag_answers():
+    search_term = request.args.get('search_term')
+    question = request.args.get('question')
+    
+    if not search_term or not question:
+        return jsonify({"error": "Search term and question are required."}), 400
+    
+    answers = RagAnswers(search_term, question)
+    
+    return jsonify(answers)
+    
+@app.route('/')
 
 
 @app.route("/")

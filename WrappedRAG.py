@@ -58,7 +58,8 @@ def RagAnswers(search_term, question, token=key):
         return_source_documents=True,
     )
 
-    pprint.pprint(qa_with_source(question))
+    # pprint.pprint(qa_with_source(question))
+    return qa_with_source(question)
 
 
 RagAnswers("Cardiovascular", "What medicine should I take if I have a high risk of cardiovascular disease?")

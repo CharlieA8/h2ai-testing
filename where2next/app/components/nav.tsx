@@ -38,8 +38,9 @@ export const Navigation: React.FC = () => {
 							href="/info"
 							className="duration-200 text-zinc-100 hover:underline"
 						>
-						info cards
-						</Link> 
+							Info Cards 
+						</Link>
+
 					</div>
 
 					<Link

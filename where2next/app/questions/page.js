@@ -1,12 +1,18 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { TypeAnimation } from 'react-type-animation';
 import { useRouter } from "next/navigation";
+import { Dropdown } from "@nextui-org/react";
+
 
 export default function ZipCodeForm() {
   const [name, setName] = useState("");
   const [zipCode, setZipCode] = useState("");
   const router = useRouter();
+
+
+
+ const [healthInsurance, setInsurance] = useState("");
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -16,10 +22,16 @@ export default function ZipCodeForm() {
     setZipCode(event.target.value);
   };
 
+  const handleInsuranceChange = (event) => {
+    setInsurance(event.target.value); // Update insurance state with selected value
+  }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     localStorage.setItem("userZipCode", zipCode);
     localStorage.setItem("userName", name);
+    localStorage.setItem("healthInsurance:", healthInsurance); 
     router.push("/doctors");
     // You can add more logic here, like submitting the form data to a server
   };
@@ -36,6 +48,8 @@ export default function ZipCodeForm() {
           'What is your name?',
           2000, // wait 1s before replacing "name" with "zip code"
           'What is your zip code?',
+          2000, 
+          'What is your insurance?', 
           2000
         ]}
         wrapper="h1"
@@ -67,6 +81,23 @@ export default function ZipCodeForm() {
             required
           />
         </label>
+        <label htmlFor="insurance" className="block mb-2 text-white drop-shadow-lg">
+          Insurance:
+          <select
+            id="insurance"
+            onChange={handleInsuranceChange}
+            className="border border-gray-400 rounded px-2 py-1 w-full text-zinc-600"
+            required
+          >
+            <option value="">Select Insurance</option>
+            <option value="Kaiser">Kaiser</option>
+            <option value="BCBS">BCBS</option>
+            <option value="Cigna">Cigna</option>
+            <option value="Elevance">Elevance</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        
         <button
           type="submit"
           className="bg-pink-600 text-white rounded px-4 py-2 mt-2 hover:bg-pink-700"

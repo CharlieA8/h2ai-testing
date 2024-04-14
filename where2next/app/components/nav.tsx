@@ -40,6 +40,7 @@ export const Navigation: React.FC = () => {
 						>
 							Info Cards 
 						</Link>
+
 					</div>
 
 					<Link
